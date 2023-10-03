@@ -231,34 +231,28 @@ main{
 /* feed finish */
 /* MAIN SESSION FINISH */
 
-/* FOOTER SESSION */
-.Footer{
-  background-color: rgb(13, 15, 92);
-  color: whitesmoke;
+/* CONTACT SESSION */
+.ContactPage{
   font-size: 1rem;
   display: flex;
-  flex-flow: column;
 }
-.Footer >h2{
-  margin: 1rem 0rem 0rem 0.5rem;
+.contactContent > h1{
+  margin: 1rem auto 1rem 1rem;
 }
-.footerSubHeading{
-  display:flex;
-  gap: 0.5rem;
-  margin: 1rem 0rem 1rem 2rem;
-  padding: 0rem;
+.contactContent > p{
+  font-size: 1.2rem;
 }
-/* FOOTER SESSION FINISH */
+/* CONTACT SESSION FINISH */
 
 /* ABOUT PAGE */
 .aboutPage{
-  min-height: 80vh;
-  margin-left: 0.5rem;
-}
-.aboutPage > h1{
-  margin: 1rem auto 1rem 0rem;
-}
-.aboutContent{
+  font-size: 1rem;
   display: flex;
+}
+.aboutContent > h1{
+  margin: 1rem auto 1rem 1rem;
+}
+.aboutContent > p {
+  margin: 1rem auto 1rem 1rem;
 }
 /* ABOUT PAGE */

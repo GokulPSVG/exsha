@@ -3,7 +3,7 @@ import Posts from './Posts';
 import Home from './Home';
 import About from './About';
 import { useState } from 'react';
-import Foot from './Foot';
+import Contact from './Contact';
 
 function App() {
   const [posts,setPosts]=useState([{id:1,title:'WELCOME',content:'Create your first post'}])
@@ -38,11 +38,7 @@ function App() {
             setmenuBar={setmenuBar}
             handelMenu={handelMenu}
         />} />
-        <Route path='/about' element={<About 
-               handelMenu={handelMenu}  
-               menuBar={menuBar}
-               />} 
-        />
+        
         <Route path='/newPost' element={<Posts 
             newTitle={newTitle}
             newContent={newContent}
@@ -51,7 +47,18 @@ function App() {
             handelSubmit={handelSubmit}
             navigate={navigate}
         />}  />
-        <Route path='/contact' element={<Foot />} />
+
+        <Route path='/about' element={<About 
+                handelMenu={handelMenu}  
+                menuBar={menuBar}
+                />} 
+        />
+        
+        <Route path='/contact' element={<Contact 
+                handelMenu={handelMenu} 
+                menuBar={menuBar}
+                />} 
+        />
       </Routes>    
     </div>
   )
