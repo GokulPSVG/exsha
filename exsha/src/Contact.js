@@ -1,13 +1,9 @@
 import React from 'react'
-import Header from './Header'
 import SideBar from './SideBar'
 
-const Contact = ({handelMenu,menuBar}) => {
+const Contact = ({menuBar}) => {
   return (        
     <div>
-        <Header 
-            handelMenu={handelMenu}
-        />
         <span className='ContactPage'>
             {menuBar && <SideBar />}
             <div className='contactContent'>

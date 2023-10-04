@@ -9,19 +9,19 @@ const FunGames = () => {
   const computerChoice= randomChoice<2||0?'Rock':randomChoice<3?'Paper':randomChoice<4?'Scissors':' ';
 
   const handelRock=(response)=>{
-      const result = computerChoice==='Rock'?'Tie!':computerChoice==='Scissors'?'You won':'Computer won';
+      const result = computerChoice==='Rock'?'Tie!':computerChoice==='Scissors'?'You won!':'Computer won!';
       setcomputer(computerChoice)
       setfinalResult(result)       
   }
 
   const handelPaper=(response)=>{
-      const result= computerChoice==='Paper'?'Tie!':computerChoice==='Rock'?'You won':'Computer Won';
+      const result= computerChoice==='Paper'?'Tie!':computerChoice==='Rock'?'You won':'Computer Won!';
       setfinalResult(result) 
       setcomputer(computerChoice)
   }
 
   const handelScissor=(response)=>{
-      const result= computerChoice==='Scissors'?'Tie':computerChoice==='Rock'?'Computer won':'You won';
+      const result= computerChoice==='Scissors'?'Tie!':computerChoice==='Rock'?'Computer won!':'You won!';
       setfinalResult(result) 
       setcomputer(computerChoice)
   }

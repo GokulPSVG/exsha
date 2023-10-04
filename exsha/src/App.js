@@ -1,15 +1,18 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate} from 'react-router-dom';
 import Posts from './Posts';
 import Home from './Home';
 import About from './About';
 import { useState } from 'react';
 import Contact from './Contact';
+import Header from './Header'
+import ShowPost from './ShowPost';
 
 function App() {
   const [posts,setPosts]=useState([{id:1,title:'WELCOME',content:'Create your first post'}])
   const [newTitle,setnewTitle]=useState('')
   const [newContent,setnewContent]=useState('')
   const [menuBar,setmenuBar]=useState(false)
+
   const navigate=useNavigate()
 
   const handelSubmit=(e)=>{
@@ -31,6 +34,9 @@ function App() {
   
   return (
     <div className="App">
+       <Header 
+          handelMenu={handelMenu}
+        />
       <Routes>
         <Route path='/' element={<Home 
             posts={posts}
@@ -57,6 +63,10 @@ function App() {
         <Route path='/contact' element={<Contact 
                 handelMenu={handelMenu} 
                 menuBar={menuBar}
+                />} 
+        />
+        <Route path='/showpost/:id' element={<ShowPost 
+                     posts={posts}
                 />} 
         />
       </Routes>    

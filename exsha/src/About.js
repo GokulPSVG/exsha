@@ -1,14 +1,10 @@
 import React from 'react'
-import Header from './Header'
 import SideBar from './SideBar'
 
-const About = ({handelMenu,menuBar}) => {
+const About = ({menuBar}) => {
   
   return (
     <div>
-        <Header 
-            handelMenu={handelMenu}
-        />
         <span className='aboutPage'>
             {menuBar && <SideBar />}
             <div className='aboutContent'>
