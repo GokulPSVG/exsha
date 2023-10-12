@@ -2,7 +2,7 @@ import React from 'react'
 import Main from './Main'
 
 
-const Home = ({posts,menuBar,handelMenu}) => {
+const Home = ({posts,menuBar}) => {
   return (
     <div>
         <Main 

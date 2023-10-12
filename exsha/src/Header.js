@@ -23,10 +23,7 @@ const Header = ({handelMenu}) => {
           ></input>
        </form>
          
-
-       <div id='icons' className="plusIcon">
-            <Link to='/newPost'><FaPlus /></Link>
-       </div>
+       <Link to='/newPost' id='icons' className="plusIcon"><FaPlus /></Link>
     </div>
   )
 }

@@ -4,24 +4,28 @@ import Home from './Home';
 import About from './About';
 import { useState } from 'react';
 import Contact from './Contact';
-import Header from './Header'
+import Header from './Header';
 import ShowPost from './ShowPost';
 
 function App() {
-  const [posts,setPosts]=useState([{id:1,title:'WELCOME',content:'Create your first post'}])
-  const [newTitle,setnewTitle]=useState('')
-  const [newContent,setnewContent]=useState('')
+  const [posts,setposts]=useState([{id:1,title:'WELCOME',content:'Create your first post',likeCount:0,shareCount:0}])
+  const [newTitle,setnewTitle]=useState(' ')
+  const [newContent,setnewContent]=useState(' ')
   const [menuBar,setmenuBar]=useState(false)
+  const [allComments,setallComments]=useState([{id:1,comments:[]}])
 
   const navigate=useNavigate()
-
+  
   const handelSubmit=(e)=>{
       e.preventDefault()
       const id=posts.length ? posts[posts.length-1].id+1 : 1
-      const newPost={id:id,title:newTitle,content:newContent}
+      const newPost={id:id,title:newTitle,content:newContent,likeCount:0,shareCount:0}
       const modPost=[...posts,newPost]
-      setPosts(modPost)
+      setposts(modPost)
       localStorage.setItem('exsha',JSON.stringify(modPost))
+      const commentArray = {id:id,comments:[]}
+      const commentArray2 = [...allComments,commentArray]
+      setallComments(commentArray2)
       setnewContent('')
       setnewTitle('')
       navigate('/')
@@ -31,7 +35,7 @@ function App() {
     e.preventDefault()
     setmenuBar(!menuBar)
   }
-  
+
   return (
     <div className="App">
        <Header 
@@ -41,8 +45,6 @@ function App() {
         <Route path='/' element={<Home 
             posts={posts}
             menuBar={menuBar}
-            setmenuBar={setmenuBar}
-            handelMenu={handelMenu}
         />} />
         
         <Route path='/newPost' element={<Posts 
@@ -52,23 +54,34 @@ function App() {
             setnewContent={setnewContent}
             handelSubmit={handelSubmit}
             navigate={navigate}
+            menuBar={menuBar}
         />}  />
 
-        <Route path='/about' element={<About 
-                handelMenu={handelMenu}  
+        <Route path='/about' element={<About  
                 menuBar={menuBar}
                 />} 
         />
         
         <Route path='/contact' element={<Contact 
-                handelMenu={handelMenu} 
                 menuBar={menuBar}
                 />} 
         />
         <Route path='/showpost/:id' element={<ShowPost 
                      posts={posts}
-                />} 
-        />
+                     menuBar={menuBar}
+                     setposts={setposts}
+                     allComments={allComments}
+                     setallComments={setallComments}
+                />}>
+                  <Route path=':id' element={<ShowPost 
+                                                posts={posts} 
+                                                setposts={setposts} 
+                                                menuBar={menuBar} 
+                                                allComments={allComments}
+                                                setallComments={setallComments}
+                                              />}   
+                  />
+        </Route>
       </Routes>    
     </div>
   )

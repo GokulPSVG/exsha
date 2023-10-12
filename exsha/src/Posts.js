@@ -1,8 +1,10 @@
 import React from 'react'
+import SideBar from './SideBar'
 
-const Posts = ({newTitle,setnewTitle,newContent,setnewContent,handelSubmit,navigate}) => {
+const Posts = ({newTitle,setnewTitle,newContent,setnewContent,handelSubmit,navigate,menuBar}) => {
   return (
     <div>
+         {menuBar && <SideBar />}
         <form action="createPost" className='newPostForm' onSubmit={(e)=>handelSubmit(e)}>
             <div className="postInput">
                   <div className="postInputBox">
